@@ -8,148 +8,90 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-  * {
-    box-sizing: border-box;
-  }
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #e2e8f0;
+}
 
-  body {
-    margin: 0;
-    font-family: "Inter", sans-serif;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    color: #e2e8f0;
-  }
+/* NAV */
+header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 100;
+}
 
-  header {
-    padding: 0;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 20px;
+}
 
-  .nav {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 20px;
-  }
+.logo { font-weight: 700; }
 
-  .logo {
-    font-weight: 700;
-    font-size: 1.2rem;
-  }
+.links a {
+  margin-left: 20px;
+  color: #94a3b8;
+  text-decoration: none;
+}
 
-  .links a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #cbd5f5;
-    font-size: 0.9rem;
-    transition: 0.2s;
-  }
+.links a:hover { color: white; }
 
-  .links a:hover {
-    color: white;
-  }
+/* PAGES */
+.page { display: none; }
+.page.active { display: block; }
 
-  .container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-    display: grid;
-    gap: 30px;
-  }
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
 
-  .section {
-    background: rgba(255,255,255,0.05);
-    border-radius: 16px;
-    padding: 20px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  }
+.section {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
 
-  .section h2 {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+h2 { margin-top: 0; }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    overflow: hidden;
-    border-radius: 10px;
-  }
+/* TABLE */
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px; }
+th { color: #64748b; font-size: 0.8rem; }
+tr:hover { background: rgba(255,255,255,0.05); }
 
-  th, td {
-    padding: 12px;
-    text-align: left;
-  }
+/* BADGES */
+.badge { padding: 4px 10px; border-radius: 999px; }
+.high { background: rgba(34,197,94,0.2); color: #22c55e; }
 
-  th {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #94a3b8;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
+/* BUTTON */
+.btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #22c55e;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
 
-  td {
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.9rem;
-  }
+.btn:hover { opacity: 0.8; }
 
-  tr:hover {
-    background: rgba(255,255,255,0.05);
-  }
-
-  .badge {
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 600;
-  }
-
-  .high { background: rgba(34,197,94,0.2); color: #22c55e; }
-  .mid { background: rgba(234,179,8,0.2); color: #eab308; }
-  .low { background: rgba(239,68,68,0.2); color: #ef4444; }
-
-  .trusted h2 { color: #22c55e; }
-  .untrusted h2 { color: #facc15; }
-  .discontinued h2 { color: #fb7185; }
-  .scam h2 { color: #ef4444; }
-
-  footer {
-    text-align: center;
-    padding: 25px;
-    color: #94a3b8;
-    font-size: 0.8rem;
-  }
-
-  @media (max-width: 768px) {
-    table, thead, tbody, th, td, tr {
-      display: block;
-    }
-
-    th {
-      display: none;
-    }
-
-    td {
-      padding: 10px;
-      position: relative;
-    }
-
-    td::before {
-      content: attr(data-label);
-      font-weight: 600;
-      display: block;
-      margin-bottom: 4px;
-      color: #94a3b8;
-    }
-  }
+/* DISCORD LIST */
+.user {
+  padding: 12px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
 </style>
 </head>
 
@@ -159,109 +101,81 @@
   <div class="nav">
     <div class="logo">Product Registry</div>
     <div class="links">
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">FAQ</a>
-      <a href="#">Contact</a>
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('products')">Products</a>
+      <a href="#" onclick="showPage('faq')">FAQ</a>
     </div>
   </div>
 </header>
 
-<div class="container">
-
-  <div class="section trusted">
-    <h2>Trusted</h2>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Score</th>
-        <th>Platform</th>
-        <th>UNC</th>
-        <th>Resellers</th>
-      </tr>
-      <tr>
-        <td data-label="Name">Volt</td>
-        <td data-label="Date">2025-01-10</td>
-        <td data-label="Score"><span class="badge high">95</span></td>
-        <td data-label="Platform">Windows</td>
-        <td data-label="UNC">97%</td>
-        <td data-label="Resellers">Official Store</td>
-      </tr>
-    </table>
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="container">
+    <div class="section">
+      <h2>Welcome</h2>
+      <p>Modern product trust registry system.</p>
+    </div>
   </div>
-
-  <div class="section untrusted">
-    <h2>Untrusted</h2>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Score</th>
-        <th>Platform</th>
-        <th>UNC</th>
-        <th>Resellers</th>
-      </tr>
-      <tr>
-        <td data-label="Name">Product X</td>
-        <td data-label="Date">2024-05-22</td>
-        <td data-label="Score"><span class="badge mid">50</span></td>
-        <td data-label="Platform">Windows</td>
-        <td data-label="UNC">Level 3</td>
-        <td data-label="Resellers">Unknown Vendors</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="section discontinued">
-    <h2>Discontinued</h2>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Score</th>
-        <th>Platform</th>
-        <th>UNC</th>
-        <th>Resellers</th>
-      </tr>
-      <tr>
-        <td data-label="Name">Old Product</td>
-        <td data-label="Date">2022-03-15</td>
-        <td data-label="Score"><span class="badge low">20</span></td>
-        <td data-label="Platform">Windows</td>
-        <td data-label="UNC">Level 5</td>
-        <td data-label="Resellers">Discontinued</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="section scam">
-    <h2>Scam</h2>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Score</th>
-        <th>Platform</th>
-        <th>UNC</th>
-        <th>Resellers</th>
-      </tr>
-      <tr>
-        <td data-label="Name">Fake Product</td>
-        <td data-label="Date">Unknown</td>
-        <td data-label="Score"><span class="badge low">0</span></td>
-        <td data-label="Platform">Unknown</td>
-        <td data-label="UNC">Level 10</td>
-        <td data-label="Resellers">Black Market</td>
-      </tr>
-    </table>
-  </div>
-
 </div>
 
-<footer>
-  © 2026 Product Registry
-</footer>
+<!-- PRODUCTS -->
+<div id="products" class="page">
+  <div class="container">
+    <div class="section">
+      <h2>Trusted Products</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+          <th>Platform</th>
+          <th>UNC</th>
+          <th>Buy</th>
+        </tr>
+        <tr>
+          <td>Volt</td>
+          <td><span class="badge high">95</span></td>
+          <td>Windows</td>
+          <td>97%</td>
+          <td><button class="btn" onclick="showPage('buy')">Buy Now</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- BUY PAGE -->
+<div id="buy" class="page">
+  <div class="container">
+    <div class="section">
+      <h2>Official Resellers</h2>
+      <div class="user">@volt_admin</div>
+      <div class="user">@trusted_seller1</div>
+      <div class="user">@securevolt</div>
+      <div class="user">@voltmarket</div>
+      <div class="user">@officialvolt</div>
+
+      <br>
+      <button class="btn" onclick="showPage('products')">Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div id="faq" class="page">
+  <div class="container">
+    <div class="section">
+      <h2>FAQ</h2>
+      <p>Coming soon.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+}
+</script>
 
 </body>
 </html>
