@@ -3,57 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Status</title>
+<title>Product Registry</title>
 
 <style>
   body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #f5f7fa;
+    background: #f4f6f9;
     color: #1a1a1a;
   }
 
   header {
-    background: #0f172a;
+    background: #111827;
     color: white;
-    padding: 25px;
+    padding: 20px;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 600;
-    letter-spacing: 1px;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
   }
 
   .section {
-    max-width: 900px;
-    margin: 30px auto;
-    background: white;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
   }
 
   .section h2 {
-    margin-bottom: 15px;
-    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
     border-bottom: 2px solid #e5e7eb;
-    padding-bottom: 8px;
+    padding-bottom: 6px;
   }
 
-  ul {
-    list-style: none;
-    padding: 0;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   }
 
-  li {
-    padding: 12px;
-    margin-bottom: 8px;
-    border-radius: 6px;
+  th, td {
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  th {
+    background: #f9fafb;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  tr {
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  tr:hover {
     background: #f1f5f9;
-    transition: background 0.2s;
-  }
-
-  li:hover {
-    background: #e2e8f0;
   }
 
   .trusted h2 { color: #16a34a; }
@@ -61,11 +73,15 @@
   .discontinued h2 { color: #dc2626; }
   .scam h2 { color: #991b1b; }
 
+  .score-high { color: #16a34a; font-weight: 600; }
+  .score-mid { color: #ca8a04; font-weight: 600; }
+  .score-low { color: #dc2626; font-weight: 600; }
+
   footer {
     text-align: center;
     padding: 20px;
     color: #6b7280;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 </style>
 </head>
@@ -73,40 +89,111 @@
 <body>
 
 <header>
-  Product Status List
+  Product Registry
 </header>
 
-<div class="section trusted">
-  <h2>Trusted Products</h2>
-  <ul>
-    <li>Product A</li>
-    <li>Product B</li>
-    <li>Product C</li>
-  </ul>
-</div>
+<div class="container">
 
-<div class="section untrusted">
-  <h2>Untrusted Products</h2>
-  <ul>
-    <li>Product X</li>
-    <li>Product Y</li>
-  </ul>
-</div>
+  <!-- TRUSTED -->
+  <div class="section trusted">
+    <h2>Trusted Products</h2>
+    <table>
+      <tr>
+        <th>Product Name</th>
+        <th>Release Date</th>
+        <th>Trust Score</th>
+        <th>Platform</th>
+        <th>UNC Level</th>
+        <th>Resellers</th>
+      </tr>
 
-<div class="section discontinued">
-  <h2>Discontinued Products</h2>
-  <ul>
-    <li>Old Product 1</li>
-    <li>Old Product 2</li>
-  </ul>
-</div>
+      <tr>
+        <td>Product A</td>
+        <td>2025-01-10</td>
+        <td class="score-high">95</td>
+        <td>Windows</td>
+        <td>Level 1</td>
+        <td>Official Store</td>
+      </tr>
 
-<div class="section scam">
-  <h2>Scam Products</h2>
-  <ul>
-    <li>Fake Product 1</li>
-    <li>Fake Product 2</li>
-  </ul>
+    </table>
+  </div>
+
+  <!-- UNTRUSTED -->
+  <div class="section untrusted">
+    <h2>Untrusted Products</h2>
+    <table>
+      <tr>
+        <th>Product Name</th>
+        <th>Release Date</th>
+        <th>Trust Score</th>
+        <th>Platform</th>
+        <th>UNC Level</th>
+        <th>Resellers</th>
+      </tr>
+
+      <tr>
+        <td>Product X</td>
+        <td>2024-05-22</td>
+        <td class="score-mid">50</td>
+        <td>Windows</td>
+        <td>Level 3</td>
+        <td>Unknown Vendors</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <!-- DISCONTINUED -->
+  <div class="section discontinued">
+    <h2>Discontinued Products</h2>
+    <table>
+      <tr>
+        <th>Product Name</th>
+        <th>Release Date</th>
+        <th>Trust Score</th>
+        <th>Platform</th>
+        <th>UNC Level</th>
+        <th>Resellers</th>
+      </tr>
+
+      <tr>
+        <td>Old Product</td>
+        <td>2022-03-15</td>
+        <td class="score-low">20</td>
+        <td>Windows</td>
+        <td>Level 5</td>
+        <td>Discontinued</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <!-- SCAM -->
+  <div class="section scam">
+    <h2>Scam Products</h2>
+    <table>
+      <tr>
+        <th>Product Name</th>
+        <th>Release Date</th>
+        <th>Trust Score</th>
+        <th>Platform</th>
+        <th>UNC Level</th>
+        <th>Resellers</th>
+      </tr>
+
+      <tr>
+        <td>Fake Product</td>
+        <td>Unknown</td>
+        <td class="score-low">0</td>
+        <td>Unknown</td>
+        <td>Level 10</td>
+        <td>Black Market</td>
+      </tr>
+
+    </table>
+  </div>
+
 </div>
 
 <footer>
