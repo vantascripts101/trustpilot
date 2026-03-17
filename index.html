@@ -5,83 +5,127 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product Registry</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #f4f6f9;
-    color: #1a1a1a;
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #e2e8f0;
   }
 
   header {
-    background: #111827;
-    color: white;
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
-    font-size: 1.6rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
   .container {
-    max-width: 1100px;
-    margin: 30px auto;
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 0 20px;
+    display: grid;
+    gap: 30px;
   }
 
   .section {
-    margin-bottom: 40px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   }
 
   .section h2 {
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-    border-bottom: 2px solid #e5e7eb;
-    padding-bottom: 6px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: 10px;
   }
 
   th, td {
-    padding: 12px 10px;
+    padding: 12px;
     text-align: left;
-    font-size: 0.95rem;
   }
 
   th {
-    background: #f9fafb;
-    font-weight: 600;
-    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
-  tr {
-    border-bottom: 1px solid #e5e7eb;
+  td {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.9rem;
   }
 
   tr:hover {
-    background: #f1f5f9;
+    background: rgba(255,255,255,0.05);
   }
 
-  .trusted h2 { color: #16a34a; }
-  .untrusted h2 { color: #ca8a04; }
-  .discontinued h2 { color: #dc2626; }
-  .scam h2 { color: #991b1b; }
+  .badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
 
-  .score-high { color: #16a34a; font-weight: 600; }
-  .score-mid { color: #ca8a04; font-weight: 600; }
-  .score-low { color: #dc2626; font-weight: 600; }
+  .high { background: rgba(34,197,94,0.2); color: #22c55e; }
+  .mid { background: rgba(234,179,8,0.2); color: #eab308; }
+  .low { background: rgba(239,68,68,0.2); color: #ef4444; }
+
+  .trusted h2 { color: #22c55e; }
+  .untrusted h2 { color: #facc15; }
+  .discontinued h2 { color: #fb7185; }
+  .scam h2 { color: #ef4444; }
 
   footer {
     text-align: center;
-    padding: 20px;
-    color: #6b7280;
-    font-size: 0.85rem;
+    padding: 25px;
+    color: #94a3b8;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    th {
+      display: none;
+    }
+
+    td {
+      padding: 10px;
+      position: relative;
+    }
+
+    td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+      color: #94a3b8;
+    }
   }
 </style>
 </head>
@@ -94,103 +138,91 @@
 
 <div class="container">
 
-  <!-- TRUSTED -->
   <div class="section trusted">
-    <h2>Trusted Products</h2>
+    <h2>Trusted</h2>
     <table>
       <tr>
-        <th>Product Name</th>
-        <th>Release Date</th>
-        <th>Trust Score</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Score</th>
         <th>Platform</th>
-        <th>UNC Level</th>
+        <th>UNC</th>
         <th>Resellers</th>
       </tr>
-
       <tr>
-        <td>Product A</td>
-        <td>2025-01-10</td>
-        <td class="score-high">95</td>
-        <td>Windows</td>
-        <td>Level 1</td>
-        <td>Official Store</td>
+        <td data-label="Name">Product A</td>
+        <td data-label="Date">2025-01-10</td>
+        <td data-label="Score"><span class="badge high">95</span></td>
+        <td data-label="Platform">Windows</td>
+        <td data-label="UNC">Level 1</td>
+        <td data-label="Resellers">Official Store</td>
       </tr>
-
     </table>
   </div>
 
-  <!-- UNTRUSTED -->
   <div class="section untrusted">
-    <h2>Untrusted Products</h2>
+    <h2>Untrusted</h2>
     <table>
       <tr>
-        <th>Product Name</th>
-        <th>Release Date</th>
-        <th>Trust Score</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Score</th>
         <th>Platform</th>
-        <th>UNC Level</th>
+        <th>UNC</th>
         <th>Resellers</th>
       </tr>
-
       <tr>
-        <td>Product X</td>
-        <td>2024-05-22</td>
-        <td class="score-mid">50</td>
-        <td>Windows</td>
-        <td>Level 3</td>
-        <td>Unknown Vendors</td>
+        <td data-label="Name">Product X</td>
+        <td data-label="Date">2024-05-22</td>
+        <td data-label="Score"><span class="badge mid">50</span></td>
+        <td data-label="Platform">Windows</td>
+        <td data-label="UNC">Level 3</td>
+        <td data-label="Resellers">Unknown Vendors</td>
       </tr>
-
     </table>
   </div>
 
-  <!-- DISCONTINUED -->
   <div class="section discontinued">
-    <h2>Discontinued Products</h2>
+    <h2>Discontinued</h2>
     <table>
       <tr>
-        <th>Product Name</th>
-        <th>Release Date</th>
-        <th>Trust Score</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Score</th>
         <th>Platform</th>
-        <th>UNC Level</th>
+        <th>UNC</th>
         <th>Resellers</th>
       </tr>
-
       <tr>
-        <td>Old Product</td>
-        <td>2022-03-15</td>
-        <td class="score-low">20</td>
-        <td>Windows</td>
-        <td>Level 5</td>
-        <td>Discontinued</td>
+        <td data-label="Name">Old Product</td>
+        <td data-label="Date">2022-03-15</td>
+        <td data-label="Score"><span class="badge low">20</span></td>
+        <td data-label="Platform">Windows</td>
+        <td data-label="UNC">Level 5</td>
+        <td data-label="Resellers">Discontinued</td>
       </tr>
-
     </table>
   </div>
 
-  <!-- SCAM -->
   <div class="section scam">
-    <h2>Scam Products</h2>
+    <h2>Scam</h2>
     <table>
       <tr>
-        <th>Product Name</th>
-        <th>Release Date</th>
-        <th>Trust Score</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Score</th>
         <th>Platform</th>
-        <th>UNC Level</th>
+        <th>UNC</th>
         <th>Resellers</th>
       </tr>
-
       <tr>
-        <td>Fake Product</td>
-        <td>Unknown</td>
-        <td class="score-low">0</td>
-        <td>Unknown</td>
-        <td>Level 10</td>
-        <td>Black Market</td>
+        <td data-label="Name">Fake Product</td>
+        <td data-label="Date">Unknown</td>
+        <td data-label="Score"><span class="badge low">0</span></td>
+        <td data-label="Platform">Unknown</td>
+        <td data-label="UNC">Level 10</td>
+        <td data-label="Resellers">Black Market</td>
       </tr>
-
     </table>
   </div>
 
