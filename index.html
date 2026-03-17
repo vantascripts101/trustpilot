@@ -15,14 +15,12 @@ body {
   color: #e2e8f0;
 }
 
-/* NAV */
 header {
   position: sticky;
   top: 0;
   backdrop-filter: blur(12px);
   background: rgba(0,0,0,0.4);
   border-bottom: 1px solid rgba(255,255,255,0.08);
-  z-index: 100;
 }
 
 .nav {
@@ -33,8 +31,6 @@ header {
   padding: 18px 20px;
 }
 
-.logo { font-weight: 700; }
-
 .links a {
   margin-left: 20px;
   color: #94a3b8;
@@ -43,7 +39,6 @@ header {
 
 .links a:hover { color: white; }
 
-/* PAGES */
 .page { display: none; }
 .page.active { display: block; }
 
@@ -60,19 +55,38 @@ header {
   margin-bottom: 25px;
 }
 
-h2 { margin-top: 0; }
+/* TABLE FIXED ALIGNMENT */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
 
-/* TABLE */
-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-th, td { padding: 12px; text-align: center; }
-th { color: #64748b; font-size: 0.8rem; text-align: center; }
+th, td {
+  padding: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+th {
+  color: #64748b;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* COLUMN WIDTHS */
+th:nth-child(1), td:nth-child(1) { width: 20%; text-align: left; }
+th:nth-child(2), td:nth-child(2) { width: 15%; }
+th:nth-child(3), td:nth-child(3) { width: 15%; }
+th:nth-child(4), td:nth-child(4) { width: 15%; }
+th:nth-child(5), td:nth-child(5) { width: 15%; }
+th:nth-child(6), td:nth-child(6) { width: 20%; }
+
 tr:hover { background: rgba(255,255,255,0.05); }
 
-/* BADGES */
 .badge { padding: 4px 10px; border-radius: 999px; }
 .high { background: rgba(34,197,94,0.2); color: #22c55e; }
 
-/* BUTTON */
 .btn {
   padding: 8px 14px;
   border-radius: 8px;
@@ -85,12 +99,17 @@ tr:hover { background: rgba(255,255,255,0.05); }
 
 .btn:hover { opacity: 0.8; }
 
-/* DISCORD LIST */
-.user {
-  padding: 12px;
+/* RESELLER CARDS */
+.card {
   background: rgba(255,255,255,0.05);
-  border-radius: 10px;
-  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.out {
+  color: #ef4444;
+  font-weight: 600;
 }
 </style>
 </head>
@@ -99,27 +118,17 @@ tr:hover { background: rgba(255,255,255,0.05); }
 
 <header>
   <div class="nav">
-    <div class="logo">Product Registry</div>
+    <div>Product Registry</div>
     <div class="links">
-      <a href="#" onclick="showPage('home')">Home</a>
-      <a href="#" onclick="showPage('products')">Products</a>
-      <a href="#" onclick="showPage('faq')">FAQ</a>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('products')">Products</a>
+      <a onclick="showPage('faq')">FAQ</a>
     </div>
   </div>
 </header>
 
-<!-- HOME -->
-<div id="home" class="page active">
-  <div class="container">
-    <div class="section">
-      <h2>Welcome</h2>
-      <p>Modern product trust registry system.</p>
-    </div>
-  </div>
-</div>
-
 <!-- PRODUCTS -->
-<div id="products" class="page">
+<div id="products" class="page active">
   <div class="container">
     <div class="section">
       <h2>Trusted Products</h2>
@@ -129,6 +138,7 @@ tr:hover { background: rgba(255,255,255,0.05); }
           <th>Score</th>
           <th>Platform</th>
           <th>UNC</th>
+          <th>Status</th>
           <th>Buy</th>
         </tr>
         <tr>
@@ -136,6 +146,7 @@ tr:hover { background: rgba(255,255,255,0.05); }
           <td><span class="badge high">95</span></td>
           <td>Windows</td>
           <td>97%</td>
+          <td class="out">Out of Stock</td>
           <td><button class="btn" onclick="showPage('buy')">Buy Now</button></td>
         </tr>
       </table>
@@ -147,12 +158,29 @@ tr:hover { background: rgba(255,255,255,0.05); }
 <div id="buy" class="page">
   <div class="container">
     <div class="section">
-      <h2>Official Resellers</h2>
-      <div class="user">@volt_admin</div>
-      <div class="user">@trusted_seller1</div>
-      <div class="user">@securevolt</div>
-      <div class="user">@voltmarket</div>
-      <div class="user">@officialvolt</div>
+      <h2>Resellers</h2>
+
+      <div class="card">
+        <b>buyvolt.xyz</b><br>
+        7 day - $5.99<br>
+        1 month - $19.99<br>
+        3 month - $59.99
+      </div>
+
+      <div class="card">
+        <b>wyv.gg</b><br>
+        7 day - $5.97<br>
+        30 day - $19.97<br>
+        90 day - $49.97<br>
+        farmer package - $9.99
+      </div>
+
+      <div class="card">
+        <b>serenitytube</b> <span class="out">(OUT OF STOCK)</span><br>
+        7 day - $5.97<br>
+        30 day - $19.97<br>
+        90 day - $53.99
+      </div>
 
       <br>
       <button class="btn" onclick="showPage('products')">Back</button>
@@ -160,20 +188,10 @@ tr:hover { background: rgba(255,255,255,0.05); }
   </div>
 </div>
 
-<!-- FAQ -->
-<div id="faq" class="page">
-  <div class="container">
-    <div class="section">
-      <h2>FAQ</h2>
-      <p>Coming soon.</p>
-    </div>
-  </div>
-</div>
-
 <script>
-function showPage(pageId) {
+function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById(pageId).classList.add('active');
+  document.getElementById(id).classList.add('active');
 }
 </script>
 
