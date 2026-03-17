@@ -2,54 +2,124 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Product List</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Status Dashboard</title>
+
 <style>
-  body {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
-    background: #0f172a;
+  }
+
+  body {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
     color: white;
+    min-height: 100vh;
+  }
+
+  header {
+    text-align: center;
+    padding: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
     padding: 20px;
   }
-  h2 {
-    margin-top: 30px;
+
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
   }
-  .trusted { color: #22c55e; }
-  .untrusted { color: #facc15; }
-  .discontinued { color: #ef4444; }
-  .scam { color: #dc2626; font-weight: bold; }
+
+  .card:hover {
+    transform: scale(1.03);
+  }
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
   ul {
     list-style: none;
-    padding-left: 10px;
   }
+
   li {
+    padding: 8px;
     margin: 5px 0;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .trusted h2 { color: #22c55e; }
+  .untrusted h2 { color: #facc15; }
+  .discontinued h2 { color: #ef4444; }
+  .scam h2 { color: #dc2626; }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.6;
   }
 </style>
 </head>
+
 <body>
 
-<h1>🛍️ Product Status List</h1>
+<header>
+  🛍️ Product Status Dashboard
+</header>
 
-<h2 class="trusted">✅ Trusted Products</h2>
-<ul>
-  <li>Product A</li>
-  <li>Product B</li>
-</ul>
+<div class="container">
 
-<h2 class="untrusted">⚠️ Untrusted Products</h2>
-<ul>
-  <li>Product X</li>
-</ul>
+  <div class="card trusted">
+    <h2>✅ Trusted Products</h2>
+    <ul>
+      <li>Product A</li>
+      <li>Product B</li>
+      <li>Product C</li>
+    </ul>
+  </div>
 
-<h2 class="discontinued">❌ Discontinued Products ✖️</h2>
-<ul>
-  <li>Old Product</li>
-</ul>
+  <div class="card untrusted">
+    <h2>⚠️ Untrusted Products</h2>
+    <ul>
+      <li>Product X</li>
+      <li>Product Y</li>
+    </ul>
+  </div>
 
-<h2 class="scam">🚫 Scam Products</h2>
-<ul>
-  <li>Fake Product</li>
-</ul>
+  <div class="card discontinued">
+    <h2>❌ Discontinued Products ✖️</h2>
+    <ul>
+      <li>Old Product 1</li>
+      <li>Old Product 2</li>
+    </ul>
+  </div>
+
+  <div class="card scam">
+    <h2>🚫 Scam Products</h2>
+    <ul>
+      <li>Fake Product 1</li>
+      <li>Fake Product 2</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Product List | GitHub Pages
+</footer>
 
 </body>
 </html>
