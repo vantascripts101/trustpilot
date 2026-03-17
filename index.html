@@ -3,73 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Status Dashboard</title>
+<title>Product Status</title>
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-
   body {
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    color: white;
-    min-height: 100vh;
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fa;
+    color: #1a1a1a;
   }
 
   header {
+    background: #0f172a;
+    color: white;
+    padding: 25px;
     text-align: center;
-    padding: 30px;
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
   }
 
-  .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+  .section {
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   }
 
-  .card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: transform 0.2s ease;
-  }
-
-  .card:hover {
-    transform: scale(1.03);
-  }
-
-  h2 {
+  .section h2 {
     margin-bottom: 15px;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
   }
 
   ul {
     list-style: none;
+    padding: 0;
   }
 
   li {
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.08);
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    transition: background 0.2s;
   }
 
-  .trusted h2 { color: #22c55e; }
-  .untrusted h2 { color: #facc15; }
-  .discontinued h2 { color: #ef4444; }
-  .scam h2 { color: #dc2626; }
+  li:hover {
+    background: #e2e8f0;
+  }
+
+  .trusted h2 { color: #16a34a; }
+  .untrusted h2 { color: #ca8a04; }
+  .discontinued h2 { color: #dc2626; }
+  .scam h2 { color: #991b1b; }
 
   footer {
     text-align: center;
     padding: 20px;
-    opacity: 0.6;
+    color: #6b7280;
+    font-size: 0.9rem;
   }
 </style>
 </head>
@@ -77,48 +73,44 @@
 <body>
 
 <header>
-  🛍️ Product Status Dashboard
+  Product Status List
 </header>
 
-<div class="container">
+<div class="section trusted">
+  <h2>Trusted Products</h2>
+  <ul>
+    <li>Product A</li>
+    <li>Product B</li>
+    <li>Product C</li>
+  </ul>
+</div>
 
-  <div class="card trusted">
-    <h2>✅ Trusted Products</h2>
-    <ul>
-      <li>Product A</li>
-      <li>Product B</li>
-      <li>Product C</li>
-    </ul>
-  </div>
+<div class="section untrusted">
+  <h2>Untrusted Products</h2>
+  <ul>
+    <li>Product X</li>
+    <li>Product Y</li>
+  </ul>
+</div>
 
-  <div class="card untrusted">
-    <h2>⚠️ Untrusted Products</h2>
-    <ul>
-      <li>Product X</li>
-      <li>Product Y</li>
-    </ul>
-  </div>
+<div class="section discontinued">
+  <h2>Discontinued Products</h2>
+  <ul>
+    <li>Old Product 1</li>
+    <li>Old Product 2</li>
+  </ul>
+</div>
 
-  <div class="card discontinued">
-    <h2>❌ Discontinued Products ✖️</h2>
-    <ul>
-      <li>Old Product 1</li>
-      <li>Old Product 2</li>
-    </ul>
-  </div>
-
-  <div class="card scam">
-    <h2>🚫 Scam Products</h2>
-    <ul>
-      <li>Fake Product 1</li>
-      <li>Fake Product 2</li>
-    </ul>
-  </div>
-
+<div class="section scam">
+  <h2>Scam Products</h2>
+  <ul>
+    <li>Fake Product 1</li>
+    <li>Fake Product 2</li>
+  </ul>
 </div>
 
 <footer>
-  © 2026 Product List | GitHub Pages
+  © 2026 Product Registry
 </footer>
 
 </body>
