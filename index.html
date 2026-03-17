@@ -40,9 +40,6 @@ header {
 
 .links a:hover { color: white; }
 
-.page { display: none; }
-.page.active { display: block; }
-
 .container {
   max-width: 1100px;
   margin: 40px auto;
@@ -53,7 +50,6 @@ header {
   background: rgba(255,255,255,0.05);
   border-radius: 16px;
   padding: 20px;
-  margin-bottom: 25px;
 }
 
 /* TABLE */
@@ -66,7 +62,6 @@ table {
 th, td {
   padding: 14px;
   text-align: center;
-  vertical-align: middle;
 }
 
 th {
@@ -74,36 +69,27 @@ th {
   font-size: 0.75rem;
 }
 
-th:nth-child(1), td:nth-child(1) { width: 40%; text-align: left; }
-th:nth-child(2), td:nth-child(2) { width: 20%; }
-th:nth-child(3), td:nth-child(3) { width: 20%; }
-th:nth-child(4), td:nth-child(4) { width: 20%; }
+/* COLUMN WIDTHS */
+th:nth-child(1), td:nth-child(1) { width: 20%; text-align: left; }
+th:nth-child(2), td:nth-child(2) { width: 10%; }
+th:nth-child(3), td:nth-child(3) { width: 15%; }
+th:nth-child(4), td:nth-child(4) { width: 15%; }
+th:nth-child(5), td:nth-child(5) { width: 20%; }
+th:nth-child(6), td:nth-child(6) { width: 20%; }
 
-tr:hover { background: rgba(255,255,255,0.05); }
-
-.badge { padding: 4px 10px; border-radius: 999px; }
-.high { background: rgba(34,197,94,0.2); color: #22c55e; }
-
-.btn {
-  padding: 8px 14px;
-  border-radius: 8px;
-  background: #22c55e;
-  color: black;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-}
-
-.btn:hover { opacity: 0.8; }
-
-.card {
+tr:hover {
   background: rgba(255,255,255,0.05);
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
 }
 
-.red { color: #ef4444; font-weight: 600; }
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.high {
+  background: rgba(34,197,94,0.2);
+  color: #22c55e;
+}
 </style>
 </head>
 
@@ -113,91 +99,41 @@ tr:hover { background: rgba(255,255,255,0.05); }
   <div class="nav">
     <div>Product Registry</div>
     <div class="links">
-      <a onclick="showPage('products')">Products</a>
-      <a onclick="showPage('faq')">FAQ</a>
+      <a>Products</a>
+      <a>FAQ</a>
     </div>
   </div>
 </header>
 
-<!-- PRODUCTS -->
-<div id="products" class="page active">
-  <div class="container">
+<div class="container">
 
-    <!-- TRUSTED -->
-    <div class="section">
-      <h2>Trusted</h2>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Score</th>
-          <th>Platform</th>
-          <th>UNC</th>
-        </tr>
+  <div class="section">
+    <h2>Trusted Executors</h2>
 
-        <tr>
-          <td>Volt</td>
-          <td><span class="badge high">95</span></td>
-          <td>Windows</td>
-          <td>97%</td>
-        </tr>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Platform</th>
+        <th>UNC</th>
+        <th>Created</th>
+        <th>Last Detected</th>
+      </tr>
 
-        <tr>
-          <td>Codex</td>
-          <td><span class="badge high">90</span></td>
-          <td>Windows</td>
-          <td>95%</td>
-        </tr>
+      <tr>
+        <td>Volt</td>
+        <td><span class="badge high">95</span></td>
+        <td>Windows</td>
+        <td>97%</td>
+        <td>2025</td>
+        <td>Jan 2026</td>
+      </tr>
 
-      </table>
-    </div>
-
-    <!-- DISCONTINUED -->
-    <div class="section">
-      <h2 class="red">Discontinued</h2>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Status</th>
-        </tr>
-
-        <tr><td>Synapse X</td><td class="red">Discontinued</td></tr>
-        <tr><td>Script-Ware</td><td class="red">Discontinued</td></tr>
-        <tr><td>KRNL</td><td class="red">Discontinued</td></tr>
-        <tr><td>ProtoSmasher</td><td class="red">Discontinued</td></tr>
-        <tr><td>Sentinel</td><td class="red">Discontinued</td></tr>
-        <tr><td>Elysian</td><td class="red">Discontinued</td></tr>
-        <tr><td>Calamari</td><td class="red">Discontinued</td></tr>
-        <tr><td>SirHurt</td><td class="red">Discontinued</td></tr>
-        <tr><td>Coco Z</td><td class="red">Discontinued</td></tr>
-        <tr><td>Skisploit</td><td class="red">Discontinued</td></tr>
-        <tr><td>Shadow</td><td class="red">Discontinued</td></tr>
-        <tr><td>Magma</td><td class="red">Discontinued</td></tr>
-        <tr><td>Kiwi X</td><td class="red">Discontinued</td></tr>
-        <tr><td>Project Ligma</td><td class="red">Discontinued</td></tr>
-        <tr><td>Alpha X</td><td class="red">Discontinued</td></tr>
-
-      </table>
-    </div>
+    </table>
 
   </div>
-</div>
 
-<!-- FAQ -->
-<div id="faq" class="page">
-  <div class="container">
-    <div class="section">
-      <h2>FAQ</h2>
-      <p>Coming soon.</p>
-    </div>
-  </div>
 </div>
-
-<script>
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-</script>
 
 </body>
 </html>
