@@ -35,6 +35,7 @@ header {
   margin-left: 20px;
   color: #94a3b8;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .links a:hover { color: white; }
@@ -55,7 +56,7 @@ header {
   margin-bottom: 25px;
 }
 
-/* TABLE FIXED ALIGNMENT */
+/* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -71,16 +72,13 @@ th, td {
 th {
   color: #64748b;
   font-size: 0.75rem;
-  letter-spacing: 0.05em;
 }
 
-/* COLUMN WIDTHS */
-th:nth-child(1), td:nth-child(1) { width: 20%; text-align: left; }
+th:nth-child(1), td:nth-child(1) { width: 25%; text-align: left; }
 th:nth-child(2), td:nth-child(2) { width: 15%; }
 th:nth-child(3), td:nth-child(3) { width: 15%; }
 th:nth-child(4), td:nth-child(4) { width: 15%; }
-th:nth-child(5), td:nth-child(5) { width: 15%; }
-th:nth-child(6), td:nth-child(6) { width: 20%; }
+th:nth-child(5), td:nth-child(5) { width: 30%; }
 
 tr:hover { background: rgba(255,255,255,0.05); }
 
@@ -99,7 +97,6 @@ tr:hover { background: rgba(255,255,255,0.05); }
 
 .btn:hover { opacity: 0.8; }
 
-/* RESELLER CARDS */
 .card {
   background: rgba(255,255,255,0.05);
   padding: 15px;
@@ -107,10 +104,7 @@ tr:hover { background: rgba(255,255,255,0.05); }
   margin-bottom: 15px;
 }
 
-.out {
-  color: #ef4444;
-  font-weight: 600;
-}
+.red { color: #ef4444; font-weight: 600; }
 </style>
 </head>
 
@@ -120,7 +114,6 @@ tr:hover { background: rgba(255,255,255,0.05); }
   <div class="nav">
     <div>Product Registry</div>
     <div class="links">
-      <a onclick="showPage('home')">Home</a>
       <a onclick="showPage('products')">Products</a>
       <a onclick="showPage('faq')">FAQ</a>
     </div>
@@ -130,27 +123,61 @@ tr:hover { background: rgba(255,255,255,0.05); }
 <!-- PRODUCTS -->
 <div id="products" class="page active">
   <div class="container">
+
+    <!-- TRUSTED -->
     <div class="section">
-      <h2>Trusted Products</h2>
+      <h2>Trusted</h2>
       <table>
         <tr>
           <th>Name</th>
           <th>Score</th>
           <th>Platform</th>
           <th>UNC</th>
-          
           <th>Buy</th>
         </tr>
+
         <tr>
           <td>Volt</td>
           <td><span class="badge high">95</span></td>
           <td>Windows</td>
           <td>97%</td>
-          
           <td><button class="btn" onclick="showPage('buy')">Buy Now</button></td>
         </tr>
+
+        <tr>
+          <td>Codex</td>
+          <td><span class="badge high">90</span></td>
+          <td>Windows</td>
+          <td>95%</td>
+          <td><button class="btn" onclick="showPage('buy')">Buy Now</button></td>
+        </tr>
+
       </table>
     </div>
+
+    <!-- DISCONTINUED -->
+    <div class="section">
+      <h2 class="red">Discontinued</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+          <th>Platform</th>
+          <th>UNC</th>
+          <th>Status</th>
+        </tr>
+
+        <tr>
+          <td>Synapse X</td>
+          <td><span class="badge high">100</span></td>
+          <td>Windows</td>
+          <td>Level 7</td>
+          <td class="red">Discontinued</td>
+        </tr>
+
+      </table>
+    </div>
+
   </div>
 </div>
 
@@ -184,6 +211,16 @@ tr:hover { background: rgba(255,255,255,0.05); }
 
       <br>
       <button class="btn" onclick="showPage('products')">Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div id="faq" class="page">
+  <div class="container">
+    <div class="section">
+      <h2>FAQ</h2>
+      <p>Coming soon.</p>
     </div>
   </div>
 </div>
