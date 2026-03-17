@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product List</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+  }
+  h2 {
+    margin-top: 30px;
+  }
+  .trusted { color: #22c55e; }
+  .untrusted { color: #facc15; }
+  .discontinued { color: #ef4444; }
+  .scam { color: #dc2626; font-weight: bold; }
+  ul {
+    list-style: none;
+    padding-left: 10px;
+  }
+  li {
+    margin: 5px 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>🛍️ Product Status List</h1>
+
+<h2 class="trusted">✅ Trusted Products</h2>
+<ul>
+  <li>Product A</li>
+  <li>Product B</li>
+</ul>
+
+<h2 class="untrusted">⚠️ Untrusted Products</h2>
+<ul>
+  <li>Product X</li>
+</ul>
+
+<h2 class="discontinued">❌ Discontinued Products ✖️</h2>
+<ul>
+  <li>Old Product</li>
+</ul>
+
+<h2 class="scam">🚫 Scam Products</h2>
+<ul>
+  <li>Fake Product</li>
+</ul>
+
+</body>
+</html>
