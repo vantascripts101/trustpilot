@@ -18,8 +18,6 @@
   --success: #22c55e;
 }
 
-* { box-sizing: border-box; }
-
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -27,13 +25,13 @@ body {
   color: var(--text);
 }
 
+/* NAV */
 header {
   position: sticky;
   top: 0;
   backdrop-filter: blur(14px);
   background: rgba(0,0,0,0.4);
   border-bottom: 1px solid var(--border);
-  z-index: 10;
 }
 
 .nav {
@@ -41,13 +39,11 @@ header {
   margin: auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 18px 20px;
 }
 
 .logo {
   font-weight: 700;
-  font-size: 1.2rem;
   background: linear-gradient(90deg, #38bdf8, #22c55e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -57,11 +53,26 @@ header {
   margin-left: 20px;
   color: var(--muted);
   text-decoration: none;
-  transition: 0.2s;
+  cursor: pointer;
 }
 
 .links a:hover {
   color: white;
+}
+
+/* PAGES */
+.page {
+  display: none;
+  animation: fade 0.3s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
 }
 
 .container {
@@ -70,28 +81,23 @@ header {
   padding: 20px;
 }
 
-.title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  color: var(--muted);
-  margin-bottom: 30px;
-}
-
+/* CARD + TABLE */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   margin-bottom: 30px;
 }
 
-.table-wrap {
-  overflow-x: auto;
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 30px;
 }
 
 table {
@@ -108,7 +114,6 @@ th {
   font-size: 0.75rem;
   color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
 tr {
@@ -128,7 +133,6 @@ tr:hover {
   padding: 6px 12px;
   border-radius: 999px;
   font-size: 0.8rem;
-  font-weight: 600;
 }
 
 .unc {
@@ -144,30 +148,18 @@ tr:hover {
 .link {
   color: var(--accent);
   text-decoration: none;
-  font-weight: 500;
-}
-
-.link:hover {
-  text-decoration: underline;
 }
 
 .footer {
   text-align: center;
   margin-top: 40px;
   color: var(--muted);
-  font-size: 0.85rem;
 }
 
-.glow:hover {
-  box-shadow: 0 0 20px rgba(56,189,248,0.2);
-  transition: 0.2s;
-}
-
-/* Disclaimer text */
+/* DISCLAIMER TEXT */
 .disclaimer {
-  line-height: 1.7;
-  font-size: 0.95rem;
   color: var(--muted);
+  line-height: 1.7;
 }
 </style>
 </head>
@@ -178,19 +170,19 @@ tr:hover {
   <div class="nav">
     <div class="logo">Volt Registry</div>
     <div class="links">
-      <a href="#">Products</a>
-      <a href="#disclaimer">Disclaimer</a>
+      <a onclick="showPage('products')">Products</a>
+      <a onclick="showPage('disclaimer')">Disclaimer</a>
     </div>
   </div>
 </header>
 
-<div class="container">
+<!-- PRODUCTS PAGE -->
+<div id="products" class="page active">
+  <div class="container">
+    <div class="title">Trusted Executors</div>
+    <div class="subtitle">Live tracking of executor safety, detection, and performance.</div>
 
-  <div class="title">Trusted Executors</div>
-  <div class="subtitle">Live tracking of executor safety, detection, and performance.</div>
-
-  <div class="card glow">
-    <div class="table-wrap">
+    <div class="card">
       <table>
         <thead>
           <tr>
@@ -202,7 +194,6 @@ tr:hover {
             <th>More</th>
           </tr>
         </thead>
-
         <tbody>
           <tr>
             <td class="name">Volt</td>
@@ -213,32 +204,41 @@ tr:hover {
             <td><a class="link" href="#">View here</a></td>
           </tr>
         </tbody>
-
       </table>
     </div>
-  </div>
 
-  <!-- Disclaimer Section -->
-  <div id="disclaimer" class="card">
-    <div class="title" style="font-size:1.5rem;">Disclaimer</div>
-    <div class="disclaimer">
-      This website was created to provide transparency within the Roblox exploiting community. The goal is to help users make more informed decisions by presenting publicly available data and community-driven insights about various executors.
-      <br><br>
-      All software listed under the “Products” section includes a “View Here” option within the “More” tab. This section provides additional details such as community feedback and analysis based on flags from VirusTotal and other antivirus tools.
-      <br><br>
-      Please note that no executor can be definitively proven to be fully safe or trustworthy. Many executors may contain hidden risks, including malicious code or potential exit scams.
-      <br><br>
-      This website does not guarantee the safety, reliability, or legitimacy of any listed software. Information may change at any time, and users are responsible for their own decisions.
-      <br><br>
-      By using this site, you acknowledge that you are doing so at your own risk.
-    </div>
+    <div class="footer">© 2026 Volt Registry</div>
   </div>
-
-  <div class="footer">
-    © 2026 Volt Registry
-  </div>
-
 </div>
+
+<!-- DISCLAIMER PAGE -->
+<div id="disclaimer" class="page">
+  <div class="container">
+    <div class="card">
+      <div class="title" style="font-size:1.5rem;">Disclaimer</div>
+      <div class="disclaimer">
+        This website was created to provide transparency within the Roblox exploiting community. The goal is to help users make more informed decisions by presenting publicly available data and community-driven insights about various executors.
+        <br><br>
+        All software listed under the “Products” section includes a “View Here” option within the “More” tab. This section provides additional details such as community feedback and analysis based on flags from VirusTotal and other antivirus tools.
+        <br><br>
+        Please note that no executor can be definitively proven to be fully safe or trustworthy. Many executors may contain hidden risks, including malicious code or potential exit scams.
+        <br><br>
+        This website does not guarantee the safety, reliability, or legitimacy of any listed software. Information may change at any time, and users are responsible for their own decisions.
+        <br><br>
+        By using this site, you acknowledge that you are doing so at your own risk.
+      </div>
+    </div>
+
+    <div class="footer">© 2026 Volt Registry</div>
+  </div>
+</div>
+
+<script>
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+}
+</script>
 
 </body>
 </html>
