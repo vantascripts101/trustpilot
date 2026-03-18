@@ -87,6 +87,7 @@ header {
   border-radius: 18px;
   padding: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  margin-bottom: 30px;
 }
 
 .table-wrap {
@@ -157,10 +158,16 @@ tr:hover {
   font-size: 0.85rem;
 }
 
-/* subtle glow */
 .glow:hover {
   box-shadow: 0 0 20px rgba(56,189,248,0.2);
   transition: 0.2s;
+}
+
+/* Disclaimer text */
+.disclaimer {
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 </style>
 </head>
@@ -172,7 +179,7 @@ tr:hover {
     <div class="logo">Volt Registry</div>
     <div class="links">
       <a href="#">Products</a>
-      <a href="#">FAQ</a>
+      <a href="#disclaimer">Disclaimer</a>
     </div>
   </div>
 </header>
@@ -208,6 +215,22 @@ tr:hover {
         </tbody>
 
       </table>
+    </div>
+  </div>
+
+  <!-- Disclaimer Section -->
+  <div id="disclaimer" class="card">
+    <div class="title" style="font-size:1.5rem;">Disclaimer</div>
+    <div class="disclaimer">
+      This website was created to provide transparency within the Roblox exploiting community. The goal is to help users make more informed decisions by presenting publicly available data and community-driven insights about various executors.
+      <br><br>
+      All software listed under the “Products” section includes a “View Here” option within the “More” tab. This section provides additional details such as community feedback and analysis based on flags from VirusTotal and other antivirus tools.
+      <br><br>
+      Please note that no executor can be definitively proven to be fully safe or trustworthy. Many executors may contain hidden risks, including malicious code or potential exit scams.
+      <br><br>
+      This website does not guarantee the safety, reliability, or legitimacy of any listed software. Information may change at any time, and users are responsible for their own decisions.
+      <br><br>
+      By using this site, you acknowledge that you are doing so at your own risk.
     </div>
   </div>
 
